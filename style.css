@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  box-sizing: border-box;
+  position: relative;
+  font-family: "Caveat", "Noto Sans TC", "cursive", sans-serif;
+  min-height: 100vh;
+  background: #ffafbd; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #ffc3a0,
+    #ffafbd
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #ffc3a0,
+    #ffafbd
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.envelope-wrapper {
+  background-color: rgb(243, 206, 157);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.envelope {
+  width: 50rem;
+  min-height: 30rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  border-top: 15rem solid #f7e3c9;
+  border-right: 25rem solid transparent;
+  border-left: 25rem solid transparent;
+  z-index: 1;
+  transition: transform 2s;
+}
+.envelope--open::before {
+  transform-origin: top center;
+  transform: rotateX(180deg);
+}
+
+.envelope__heart {
+  font-size: 2.5rem;
+  background-image: -webkit-linear-gradient(to left, #e53935, #e35d5b);
+  background-image: linear-gradient(to left, #e53935, #e35d5b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: transform 0.5s;
+}
+
+.envelope__icon-wrapper {
+  display: inline-block;
+  z-index: 2;
+}
+.envelope__icon-wrapper:hover .envelope__heart {
+  cursor: pointer;
+  transform: translate(3px, -3px) rotate(15deg);
+}
+
+.d-none {
+  display: none;
+}
+
+.envelope__card-wrapper {
+  width: 45rem;
+  height: 25rem;
+  background: #ffecd4;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.envelope__card {
+  height: 100%;
+  border: 0.5px solid goldenrod;
+  border-radius: 5px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.envelope__content {
+  flex-basis: 90%;
+  font-size: 2rem;
+  text-decoration: underline;
+  text-decoration-color: goldenrod;
+  -webkit-text-decoration-thickness: 1.5px;
+  text-decoration-thickness: 1.5px;
+}
+.envelope__author {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.envelope__author::before {
+  content: "";
+  display: inline-block;
+  height: 0.5px;
+  width: 30px;
+  background-color: goldenrod;
+  margin-right: 5px;
+}
+.envelope__author::after {
+  content: "";
+  display: inline-block;
+  height: 0.5px;
+  width: 30px;
+  background-color: goldenrod;
+  margin-left: 5px;
+}
+/* .content{
+  font-size:2rem;
+  text-decoration: underline;
+  text-decoration-color: #ffc3a0;
+} */
+
+/* .btn-wrapper {
+  position: absolute;
+  bottom: 7rem;
+} */
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: absolute;
+  bottom: 7rem;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.btn::after {
+  content: "";
+  background-color: #fff;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.4);
+  opacity: 0;
+}
+
+.btn:active,
+.btn:focus {
+  outline:none;
+  transform:translateY(-1px);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+}
